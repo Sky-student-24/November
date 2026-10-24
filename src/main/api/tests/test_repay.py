@@ -50,7 +50,7 @@ class TestCreditRepay:
         response_credit = api_manager.user_steps.credit(create_user_credit_request, credit_request)
 
         repay_request = RepayRequest(
-            creditId=999,
+            creditId=899,
             accountId=response_credit.id,
             amount=response_credit.amount
         )
