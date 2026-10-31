@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c79731a-e41c-4fa0-bd45-5d34d3ba4cfd" name="Changes" comment="автотесты к API">
+      <change afterPath="$PROJECT_DIR$/random_value_for_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/api/fixtures/user_fixtures.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/fixtures/user_fixtures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/api/steps/user_steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/steps/user_steps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/api/tests/test_credit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/tests/test_credit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/api/tests/test_deposit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/tests/test_deposit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/api/tests/test_repay.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/tests/test_repay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/api/tests/test_transfer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/tests/test_transfer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +65,17 @@
     "Python tests.pytest for main.api.tests.test_4_credit_repay.TestCreditRepay.test_credit_repay_negative.executor": "Run",
     "Python tests.pytest for main.api.tests.test_credit.TestCreditRequest.test_credit_request_negative.executor": "Run",
     "Python tests.pytest for main.api.tests.test_credit.TestCreditRequest.test_credit_request_positive.executor": "Run",
+    "Python tests.pytest for main.api.tests.test_dep.TestDeposit.test_deposit_negative.executor": "Run",
+    "Python tests.pytest for main.api.tests.test_dep.TestDeposit.test_deposit_positive.executor": "Run",
+    "Python tests.pytest for main.api.tests.test_deposit.TestDeposit.test_deposit_mid.executor": "Run",
     "Python tests.pytest for main.api.tests.test_deposit.TestDeposit.test_deposit_negative.executor": "Run",
     "Python tests.pytest for main.api.tests.test_deposit.TestDeposit.test_deposit_positive.executor": "Run",
     "Python tests.pytest for main.api.tests.test_repay.TestCreditRepay.test_credit_repay_negative.executor": "Run",
     "Python tests.pytest for main.api.tests.test_repay.TestCreditRepay.test_credit_repay_positive.executor": "Run",
     "Python tests.pytest for main.api.tests.test_transfer.TestTransfer.test_transfer_negative.executor": "Run",
     "Python tests.pytest for main.api.tests.test_transfer.TestTransfer.test_transfer_positive.executor": "Run",
+    "Python tests.pytest for main.api.tests.test_transfer.TestTransfer.test_transfer_positive_1.executor": "Run",
+    "Python tests.pytest for main.api.tests.test_transfer.TestTransfer.test_transfer_positive_2.executor": "Run",
     "Python tests.pytest for main.api.tests.v1.test_3_credit.TestCreditRequest.test_credit_request_positive.executor": "Run",
     "Python tests.pytest for main.api.tests.v1.test_4_repay.TestCreditRepay.test_credit_repay_positive.executor": "Run",
     "Python tests.pytest for main.api.tests.v2.test_1_deposit.TestDeposit.test_deposit_negative.executor": "Run",
@@ -92,7 +104,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "ip__112__ivan",
-    "last_opened_file_path": "C:/Users/New Life/PycharmProjects/Bank_project_test_final/src/main/api/db/models",
+    "last_opened_file_path": "C:/Users/New Life/PycharmProjects/Bank_project_test_final",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
@@ -113,11 +125,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\New Life\PycharmProjects\Bank_project_test_final" />
+      <recent name="C:\Users\New Life\PycharmProjects\Bank_project_test_final\src\main\api\tests" />
       <recent name="C:\Users\New Life\PycharmProjects\Bank_project_test_final\src\main\api\db\models" />
       <recent name="C:\Users\New Life\PycharmProjects\Bank_project_test_final\src\main\api\db\crud" />
       <recent name="C:\Users\New Life\PycharmProjects\Bank_project_test_final\src\main\api\fixtures" />
-      <recent name="C:\Users\New Life\PycharmProjects\Bank_project_test_final\src\main\api" />
-      <recent name="C:\Users\New Life\PycharmProjects\Bank_project_test_final" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\New Life\PycharmProjects\Bank_project_test_final\src\main\api\tests" />
@@ -163,6 +175,25 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for main.api.tests.test_deposit.TestDeposit.test_deposit_negative" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Bank_project_test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;main.api.tests.test_deposit.TestDeposit.test_deposit_negative&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest for main.api.tests.test_repay.TestCreditRepay.test_credit_repay_negative" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Bank_project_test" />
       <option name="ENV_FILES" value="" />
@@ -201,32 +232,13 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for main.api.tests.test_transfer.TestTransfer.test_transfer_positive" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="Bank_project_test" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;main.api.tests.test_transfer.TestTransfer.test_transfer_positive&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.pytest for main.api.tests.test_repay.TestCreditRepay.test_credit_repay_negative" />
         <item itemvalue="Python tests.pytest for main.api.tests.test_repay.TestCreditRepay.test_credit_repay_positive" />
-        <item itemvalue="Python tests.pytest for main.api.tests.test_credit.TestCreditRequest.test_credit_request_negative" />
         <item itemvalue="Python tests.pytest for main.api.tests.test_credit.TestCreditRequest.test_credit_request_positive" />
-        <item itemvalue="Python tests.pytest for main.api.tests.test_transfer.TestTransfer.test_transfer_positive" />
+        <item itemvalue="Python tests.pytest for main.api.tests.test_credit.TestCreditRequest.test_credit_request_negative" />
+        <item itemvalue="Python tests.pytest for main.api.tests.test_deposit.TestDeposit.test_deposit_negative" />
       </list>
     </recent_temporary>
   </component>
@@ -272,7 +284,17 @@
           <line>8</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/main/api/db/crud/transaction_crud.py</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="tests">
+        <watch expression="user_request" />
+        <watch expression="user_request" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

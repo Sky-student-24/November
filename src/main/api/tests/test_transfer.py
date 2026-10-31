@@ -1,66 +1,43 @@
 import pytest
 from sqlalchemy.orm import Session
-from src.main.api.models.create_user_request import CreateUserRequest
-from src.main.api.models.transfer_request import TransferRequest
-from src.main.api.models.deposit_request import DepositRequest
+from random_value_for_test import generate_deposit_transfer
 from src.main.api.classes.api_manager import ApiManager
 from src.main.api.db.crud.account_crud import AccountCrudDb as Account
 
 
 @pytest.mark.api
 class TestTransfer:
-    def test_transfer_positive(self, api_manager: ApiManager, create_user_request: CreateUserRequest, db_session: Session):
-        acc_1 = api_manager.user_steps.create_account(create_user_request)
-        acc_2 = api_manager.user_steps.create_account(create_user_request)
+    def test_transfer_positive(self, api_manager: ApiManager, user_transfer, db_session: Session):
+        deposit_amount, transfer_amount = generate_deposit_transfer()
 
-        deposit_request = DepositRequest(
-            accountId=acc_1.id,
-            amount=5000
-        )
+        data = user_transfer(deposit_amount=deposit_amount, transfer_amount=transfer_amount)
 
-        api_manager.user_steps.deposit(create_user_request, deposit_request)
+        response = api_manager.user_steps.transfer(data["user_request"], data["transfer_request"])
 
-        transfer_request = TransferRequest(
-            fromAccountId=acc_1.id,
-            toAccountId=acc_2.id,
-            amount=2000
-        )
+        assert response is not None
 
-        response = api_manager.user_steps.transfer(create_user_request, transfer_request)
+        acc_from = Account.get_account_by_id(db_session, data["acc_from_id"])
+        acc_to = Account.get_account_by_id(db_session, data["acc_to_id"])
 
-        assert response.fromAccountIdBalance != 0
+        assert acc_from.balance == pytest.approx(deposit_amount - transfer_amount, rel=1e-6, abs=0.01)
+        assert acc_to.balance == pytest.approx(transfer_amount, rel=1e-6, abs=0.01)
 
-        acc_from = Account.get_account_by_id(db_session, acc_1.id)
-        acc_to = Account.get_account_by_id(db_session, acc_2.id)
+    @pytest.mark.parametrize("deposit_amount,transfer_amount", [
+        (5000.0, 7000.0),
+    ])
+    def test_transfer_negative(self, api_manager: ApiManager, user_transfer, deposit_amount, transfer_amount,db_session: Session):
 
-        assert acc_from.balance == 3000
-        assert acc_to.balance == 2000
+        data = user_transfer(deposit_amount=deposit_amount, transfer_amount=transfer_amount)
 
+        response = api_manager.user_steps.transfer_crash(data["user_request"], data["transfer_request"])
 
-    def test_transfer_negative(self, api_manager: ApiManager, create_user_request: CreateUserRequest, db_session: Session):
-        acc_1 = api_manager.user_steps.create_account(create_user_request)
-        acc_2 = api_manager.user_steps.create_account(create_user_request)
+        assert response is None
 
-        deposit_request = DepositRequest(
-        accountId = acc_1.id,
-        amount = 5000
+        acc_from = Account.get_account_by_id(db_session, data["acc_from_id"])
+        acc_to = Account.get_account_by_id(db_session, data["acc_to_id"])
 
-        )
+        assert acc_from is not None
+        assert acc_to is not None
 
-        api_manager.user_steps.deposit(create_user_request, deposit_request)
-
-        transfer_request = TransferRequest(
-        fromAccountId = acc_1.id,
-        toAccountId = acc_2.id,
-        amount = 7000
-
-        )
-
-        api_manager.user_steps.transfer_crash(create_user_request, transfer_request)
-
-
-        acc_from = Account.get_account_by_id(db_session, acc_1.id)
-        acc_to = Account.get_account_by_id(db_session, acc_2.id)
-
-        assert abs(acc_from.balance - 5000.0) < 0.01, "Баланс отправителя был изменен"
-        assert abs(acc_to.balance - 0.0) < 0.01, "Баланс получателя был изменен"
+        assert pytest.approx(acc_from.balance, rel=1e-6, abs=0.01) == deposit_amount
+        assert pytest.approx(acc_to.balance, rel=1e-6, abs=0.01) == 0.0
