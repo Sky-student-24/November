@@ -53,43 +53,43 @@ class UserSteps(BaseSteps):
             ).post(transfer_request)
             return response
 
-    def credit(self, create_user_request: CreateUserCreditRequest, credit_request: CreditRequest):
+    def credit(self, create_user_credit_request: CreateUserCreditRequest, credit_request: CreditRequest):
             response = ValidateCrudRequester(
-                RequestsSpecs.auth_headers(username=create_user_request.username, password=create_user_request.password),
+                RequestsSpecs.auth_headers(username=create_user_credit_request.username, password=create_user_credit_request.password),
                 Endpoint.CREDIT,
                 ResponseSpecs.request_created()
             ).post(credit_request)
             return response
 
-    def credit_crash(self, create_user_request: CreateUserCreditRequest, credit_request: CreditRequest):
+    def credit_crash(self, create_user_credit_request: CreateUserCreditRequest, credit_request: CreditRequest):
             response = ValidateCrudRequester(
-                RequestsSpecs.auth_headers(username=create_user_request.username, password=create_user_request.password),
+                RequestsSpecs.auth_headers(username=create_user_credit_request.username, password=create_user_credit_request.password),
                 Endpoint.CREDIT,
                 ResponseSpecs.forbidden()
             ).post(credit_request)
             return response
 
-    def create_account_credit(self, create_user_request: CreateUserCreditRequest):
+    def create_account_credit(self, create_user_credit_request: CreateUserCreditRequest):
         response = ValidateCrudRequester(
-            RequestsSpecs.auth_headers(username=create_user_request.username, password=create_user_request.password),
+            RequestsSpecs.auth_headers(username=create_user_credit_request.username, password=create_user_credit_request.password),
             Endpoint.CREATE_ACCOUNT,
             ResponseSpecs.request_created()
         ).post()
         return response
 
-    def repay(self, create_user_request: CreateUserCreditRequest, repay_request: RepayRequest):
+    def repay(self, create_user_credit_request: CreateUserCreditRequest, repay_request: RepayRequest):
         response = ValidateCrudRequester(
-            RequestsSpecs.auth_headers(username=create_user_request.username, password=create_user_request.password),
+            RequestsSpecs.auth_headers(username=create_user_credit_request.username, password=create_user_credit_request.password),
             Endpoint.REPAY,
             ResponseSpecs.request_ok()
         ).post(repay_request)
         return response
 
-    def repay_crash(self, create_user_request: CreateUserCreditRequest, repay_request: RepayRequest):
+    def repay_crash(self, create_user_credit_request: CreateUserCreditRequest, repay_request: RepayRequest):
         response = ValidateCrudRequester(
-            RequestsSpecs.auth_headers(username=create_user_request.username, password=create_user_request.password),
+            RequestsSpecs.auth_headers(username=create_user_credit_request.username, password=create_user_credit_request.password),
             Endpoint.REPAY,
-            ResponseSpecs.not_found()
+            ResponseSpecs.unpoces_content()
         ).post(repay_request)
         return response
 
